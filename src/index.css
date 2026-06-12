@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    /* hairline default border color so utility borders read on dark */
+    border-color: theme('colors.ink-line', rgba(255, 255, 255, 0.1));
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-ink font-sans text-warm antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible keyboard focus on every interactive element */
+  :where(a, button, input, textarea, select, [tabindex], summary):focus-visible {
+    outline: 2px solid theme('colors.asphalt');
+    outline-offset: 2px;
+    border-radius: 1px;
+  }
+
+  /* Don't show the focus ring for mouse clicks */
+  :where(a, button):focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  ::selection {
+    background: theme('colors.asphalt');
+    color: white;
+  }
+}
+
+@layer components {
+  /* ---- Datasheet primitives ---- */
+
+  /* Road-marking dashed rule */
+  .dash-rule {
+    background-image: repeating-linear-gradient(
+      to right,
+      theme('colors.asphalt') 0,
+      theme('colors.asphalt') 18px,
+      transparent 18px,
+      transparent 30px
+    );
+    height: 2px;
+    width: 100%;
+  }
+  .dash-rule-mute {
+    background-image: repeating-linear-gradient(
+      to right,
+      currentColor 0,
+      currentColor 14px,
+      transparent 14px,
+      transparent 26px
+    );
+    height: 1px;
+    width: 100%;
+  }
+
+  /* Container */
+  .shell {
+    width: 100%;
+    max-width: theme('maxWidth.content');
+    margin-inline: auto;
+    padding-inline: clamp(1.15rem, 4vw, 2.75rem);
+  }
+
+  /* Primary CTA */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-asphalt px-6 py-3 font-display text-lg font-semibold uppercase tracking-wide text-white transition-colors duration-200 ease-out;
+  }
+  .btn-primary:hover {
+    @apply bg-asphalt-deep;
+  }
+
+  /* Secondary action: text link with icon (not a competing button) */
+  .link-action {
+    @apply inline-flex items-center gap-2 font-mono text-sm uppercase tracking-chip transition-colors duration-200 ease-out;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .grain-divider {
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      theme('colors.warm-line'),
+      transparent
+    );
+  }
+}
+
+/* ---- Scroll reveal: visible by default, enhanced when motion is allowed ---- */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal.reveal-armed {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  .reveal.reveal-in {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}

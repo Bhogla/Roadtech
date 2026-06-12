@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node .claude/skills/impeccable/scripts/context.mjs)",
+      "Bash(echo \"---EXIT:$?---\")"
+    ]
+  }
+}
