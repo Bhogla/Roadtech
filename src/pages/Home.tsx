@@ -26,51 +26,61 @@ export function Home() {
         suffix={false}
       />
       {/* ---------------- HERO ---------------- */}
-      <section className="relative isolate flex min-h-[clamp(34rem,82vh,46rem)] items-center overflow-hidden bg-ink lg:aspect-[1210/720] lg:min-h-0">
-        <HeroVideo src="/hero-loop.mp4" />
+      {/* Below lg: a short video strip up top, then the text on a solid card
+          beneath it — nothing overlaps the footage. From lg up, the video
+          goes full-bleed behind the text again (unchanged desktop design). */}
+      <section className="relative isolate overflow-hidden bg-ink lg:aspect-[1210/720]">
+        <div className="relative h-72 sm:h-80 md:h-96 lg:absolute lg:inset-0 lg:h-full">
+          <HeroVideo src="/hero-loop.mp4" />
+          {/* Fades the strip into the solid card below — mobile/tablet only */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-ink to-transparent lg:hidden"
+          />
+          <div className="hidden lg:block lg:absolute lg:inset-0 -z-10 bg-hero-veil" />
+        </div>
 
-        <div className="absolute inset-0 -z-10 bg-hero-veil" />
-        <div className="absolute inset-0 -z-10 bg-hero-veil-b sm:hidden" />
-
-        <div className="shell w-full py-20">
-          <div className="max-w-2xl">
-            <Reveal delay={0}>
-              <FigureLabel className="text-asphalt">{home.hero.figure}</FigureLabel>
-            </Reveal>
-            <Reveal delay={90}>
-              <h1 className="mt-6 font-display text-display-xl font-bold uppercase text-warm">
-                {home.hero.title}
-              </h1>
-            </Reveal>
-            <Reveal delay={180}>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-warm/85 sm:text-xl">
-                {home.hero.subhead}
-              </p>
-            </Reveal>
-            <Reveal delay={260}>
-              <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
-                <Link to="/products" className="btn-primary">
-                  Explore Products
-                  <ArrowRight className="h-5 w-5" />
-                </Link>
-                <Link
-                  to="/about"
-                  className="link-action text-warm hover:text-asphalt"
-                >
-                  Our Story
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </Reveal>
-            <Reveal delay={340}>
-              <div className="mt-10 flex flex-wrap gap-2.5">
-                {about.certifications.map((c) => (
-                  <Chip key={c.label} kind={c.kind} className="text-warm/90">
-                    {c.label}
-                  </Chip>
-                ))}
-              </div>
-            </Reveal>
+        <div className="relative bg-ink lg:absolute lg:inset-0 lg:flex lg:items-center lg:bg-transparent">
+          <div className="shell w-full py-10 sm:py-12 lg:py-20">
+            <div className="max-w-2xl">
+              <Reveal delay={0}>
+                <FigureLabel className="text-asphalt">{home.hero.figure}</FigureLabel>
+              </Reveal>
+              <Reveal delay={90}>
+                <h1 className="mt-6 font-display text-display-xl font-bold uppercase text-warm">
+                  {home.hero.title}
+                </h1>
+              </Reveal>
+              <Reveal delay={180}>
+                <p className="mt-6 max-w-xl text-lg leading-relaxed text-warm/85 sm:text-xl">
+                  {home.hero.subhead}
+                </p>
+              </Reveal>
+              <Reveal delay={260}>
+                <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
+                  <Link to="/products" className="btn-primary">
+                    Explore Products
+                    <ArrowRight className="h-5 w-5" />
+                  </Link>
+                  <Link
+                    to="/about"
+                    className="link-action text-warm hover:text-asphalt"
+                  >
+                    Our Story
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </Reveal>
+              <Reveal delay={340}>
+                <div className="mt-10 flex flex-wrap gap-2.5">
+                  {about.certifications.map((c) => (
+                    <Chip key={c.label} kind={c.kind} className="text-warm/90">
+                      {c.label}
+                    </Chip>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
           </div>
         </div>
       </section>
