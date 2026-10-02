@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import logoMark from '../assets/logo-mark.png'
+import logoMark from '../assets/logo-mark.webp'
 
 /**
  * Roadtech header lockup: the standalone orange logo mark (src/assets/logo-mark.png,

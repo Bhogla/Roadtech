@@ -6,12 +6,12 @@ import { Reveal } from '../components/Reveal'
 import { Seo } from '../components/Seo'
 import { Chip, DashRule, FigureLabel, SectionHeading } from '../components/ui'
 import { ArrowRight, Handshake, ShieldCheck, Users } from '../components/icons'
-import guptaPhoto from '../assets/directors/gupta.png'
-import sharawatPhoto from '../assets/directors/sharawat.png'
-import legacy1 from '../assets/legacy/legacy-1.png'
-import legacy2 from '../assets/legacy/legacy-2.png'
-import legacy3 from '../assets/legacy/legacy-3.png'
-import legacy4 from '../assets/legacy/legacy-4.png'
+import guptaPhoto from '../assets/directors/gupta.webp'
+import sharawatPhoto from '../assets/directors/sharawat.webp'
+import legacy1 from '../assets/legacy/legacy-1.webp'
+import legacy2 from '../assets/legacy/legacy-2.webp'
+import legacy3 from '../assets/legacy/legacy-3.webp'
+import legacy4 from '../assets/legacy/legacy-4.webp'
 
 const pillars = [
   { icon: ShieldCheck, title: 'Integrity & Safety', body: 'Strict protocols and stringent quality control at every stage.' },

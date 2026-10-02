@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import legacy1 from '../assets/legacy/legacy-1.png'
-import legacy2 from '../assets/legacy/legacy-2.png'
-import legacy3 from '../assets/legacy/legacy-3.png'
-import legacy4 from '../assets/legacy/legacy-4.png'
+import legacy1 from '../assets/legacy/legacy-1.webp'
+import legacy2 from '../assets/legacy/legacy-2.webp'
+import legacy3 from '../assets/legacy/legacy-3.webp'
+import legacy4 from '../assets/legacy/legacy-4.webp'
 
 type Slide = { src: string; alt: string; caption: string }
 
