@@ -40,8 +40,8 @@ export function Home() {
           <div className="hidden lg:block lg:absolute lg:inset-0 -z-10 bg-hero-veil" />
         </div>
 
-        <div className="relative bg-ink lg:absolute lg:inset-0 lg:flex lg:items-center lg:bg-transparent">
-          <div className="shell w-full py-10 sm:py-12 lg:py-20">
+        <div className="relative bg-ink lg:absolute lg:inset-0 lg:flex lg:items-start lg:bg-transparent">
+          <div className="shell w-full py-10 sm:py-12 lg:max-w-[1360px] lg:py-20">
             <div className="max-w-2xl">
               <Reveal delay={0}>
                 <FigureLabel className="text-asphalt">{home.hero.figure}</FigureLabel>
