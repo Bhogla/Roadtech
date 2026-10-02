@@ -11,7 +11,6 @@ const brands: Brand[] = [
   { src: '/Logos/13.webp', alt: 'eSPAN' },
   { src: '/Logos/4.webp', alt: 'H.G. Infra Engineering Ltd (HGIEL)' },
   { src: '/Logos/5.webp', alt: 'BlackGold' },
-  { src: '/Logos/6.webp', alt: 'Blacklead Infratech Private Limited' },
   { src: '/Logos/7.webp', alt: 'ALSEC' },
   { src: '/Logos/10.webp', alt: 'Slurrytech' },
   { src: '/Logos/11.webp', alt: 'RG Buildwell Engineers Ltd' },
