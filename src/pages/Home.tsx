@@ -294,7 +294,7 @@ export function Home() {
                       src={ind.image}
                       alt={ind.alt}
                       loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-[700ms] ease-out group-hover:scale-105"
+                      className={`h-full w-full object-cover ${ind.objectPosition ?? 'object-center'} transition-transform duration-[700ms] ease-out group-hover:scale-105`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/35 to-transparent" />
                   </div>

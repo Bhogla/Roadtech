@@ -25,12 +25,15 @@ const MARK: Record<LogoSize, string> = {
 }
 
 const NAME: Record<LogoSize, string> = {
-  // Single continuous fluid clamp from the lg breakpoint up (no xl step) — ~18px at
-  // 1024px viewport → ~42px by ~1450px, then holds. Avoids the old two-stage
-  // fixed→clamp jump at the xl breakpoint. Min trimmed further to free up room for
-  // the wider (1.75rem) nav-link gap without the phone CTA overflowing at 1024px.
-  lg: 'whitespace-nowrap text-[clamp(1.1rem,calc(5.85vw-2.64rem),2.65rem)] leading-[0.95]',
-  md: 'whitespace-nowrap text-[1.35rem] leading-none', // ~22px
+  // Sized off the middle grid column's own width (cqi, via the `[container-type:
+  // inline-size]` ancestor in Header.tsx) rather than the viewport — a vw-based
+  // size has no idea how much the nav links and WhatsApp/call buttons either
+  // side have already eaten into that column, so it kept growing even as the
+  // actual space left for the wordmark shrank, running the text into the
+  // WhatsApp button. ~36px at the 1440px-viewport container width, holding at
+  // the clamp max by ~1536px.
+  lg: 'whitespace-nowrap text-[clamp(0.85rem,calc(7.1cqi-0.75rem),2.3rem)] leading-[0.95]',
+  md: 'whitespace-nowrap text-[1.35rem] leading-none', // ~22px — unchanged, scrolled state isn't vw-driven
   sm: 'text-[1.4rem] leading-tight', // ~22px (was 18 — fills toward the menu button)
 }
 
@@ -52,7 +55,7 @@ export function Logo({
       to="/"
       onClick={onClick}
       aria-label="Roadtech Asphalt Technologies — home"
-      className={`group flex items-center gap-3 ${className}`}
+      className={`group flex shrink-0 items-center gap-3 ${className}`}
     >
       <img
         src={logoMark}
@@ -68,7 +71,7 @@ export function Logo({
         {...{ fetchpriority: 'high' }}
         className={`w-auto shrink-0 object-contain transition-[height] duration-300 ease-out motion-reduce:transition-none ${MARK[size]}`}
       />
-      <span className={`flex min-w-0 flex-col ${truncate ? 'overflow-hidden' : ''}`}>
+      <span className="flex min-w-0 flex-col overflow-hidden">
         <span
           className={`font-display font-bold uppercase tracking-tight text-warm transition-[font-size] duration-300 ease-out motion-reduce:transition-none ${NAME[size]} ${
             truncate ? 'truncate' : ''

@@ -100,8 +100,16 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CENTER (desktop): logo mark + company name lockup — the visual anchor */}
-          <div className="hidden justify-self-center lg:block">
+          {/* CENTER (desktop): logo mark + company name lockup — the visual anchor.
+              A size container so the wordmark (in Logo) can scale off the actual
+              width left in this 1fr grid column, not off the viewport — the
+              column's own width already shrinks with the nav/CTA columns either
+              side of it, which a vw-based font size can't see. Stretches to the
+              full grid track (no justify-self-center) and centers the Logo
+              inside via flex instead: a container-type:inline-size element
+              can't size itself from its own content, so letting it hug the
+              Logo's width here would collapse it to 0. */}
+          <div className="hidden min-w-0 lg:flex lg:justify-center [container-type:inline-size]">
             <Logo size={scrolled ? 'md' : 'lg'} showTagline={!scrolled} />
           </div>
 

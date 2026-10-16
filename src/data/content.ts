@@ -199,7 +199,8 @@ export const home = {
         title: 'Runways',
         body: 'Aviation-grade surfaces where load tolerance and consistency are non-negotiable.',
         image: '/images/ind-runways.jpg',
-        alt: 'An airport runway with painted threshold markings receding to the horizon.',
+        alt: 'Freshly resurfaced airport runway with threshold markings and runway number 28.',
+        objectPosition: 'object-center',
       },
       {
         code: 'IND-03',
