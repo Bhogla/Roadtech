@@ -5,7 +5,7 @@ import { PageHero } from '../components/PageHero'
 import { Reveal } from '../components/Reveal'
 import { Seo } from '../components/Seo'
 import { Chip, DashRule, FigureLabel, SectionHeading } from '../components/ui'
-import { ArrowRight, Handshake, ShieldCheck, Users } from '../components/icons'
+import { ArrowRight, Handshake, LinkedIn, ShieldCheck, Users } from '../components/icons'
 import guptaPhoto from '../assets/directors/gupta.webp'
 import sharawatPhoto from '../assets/directors/sharawat.webp'
 import legacy1 from '../assets/legacy/legacy-1.webp'
@@ -59,6 +59,7 @@ const directors = [
     tag: 'DIRECTOR :: PRODUCT & TECHNICAL',
     photo: sharawatPhoto,
     alt: 'Dherandra Sharawat, Director, Roadtech Asphalt Technologies',
+    linkedin: 'https://www.linkedin.com/in/dherandra-pratap-singh-sharawat-631b79333/',
     // Each cutout sits hard against one side of its 16:9 frame (measured alpha
     // bbox: Sharawat 0.00–0.66, Gupta 0.31–0.98). Pin the cover window to that
     // side so the figure lands centred and nothing gets clipped.
@@ -82,6 +83,7 @@ const directors = [
     tag: 'DIRECTOR :: GROWTH & OPERATIONS',
     photo: guptaPhoto,
     alt: 'Tarun Gupta, Director, Roadtech Asphalt Technologies',
+    linkedin: 'https://www.linkedin.com/in/tarun-gupta-73a43217/',
     focus: 'right center',
     glow: 'radial-gradient(46% 44% at 53% 56%, rgba(232,93,45,0.13) 0%, rgba(232,93,45,0.04) 45%, rgba(232,93,45,0) 72%)',
     flip: true,
@@ -250,9 +252,22 @@ export function About() {
                   <div className={d.flip ? 'lg:order-1' : ''}>
                     <FigureLabel>{d.tag}</FigureLabel>
 
-                    <h3 className="mt-4 font-display text-[2rem] font-semibold uppercase leading-[1.05] tracking-[-0.015em] text-warm sm:text-5xl">
-                      {d.first} {d.last}
-                    </h3>
+                    <div className="mt-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 sm:flex-nowrap">
+                      <h3 className="font-display text-[2rem] font-semibold uppercase leading-[1.05] tracking-[-0.015em] text-warm sm:text-5xl">
+                        {d.first} {d.last}
+                      </h3>
+                      {d.linkedin && (
+                        <a
+                          href={d.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${d.first} ${d.last} on LinkedIn`}
+                          className="grid h-10 w-10 shrink-0 place-items-center border border-ink-line text-aggregate transition-colors hover:border-asphalt/60 hover:text-asphalt"
+                        >
+                          <LinkedIn className="h-5 w-5" />
+                        </a>
+                      )}
+                    </div>
 
                     <div className="mt-7 max-w-prose space-y-5 leading-relaxed text-aggregate">
                       {d.bio.map((p, j) => (
