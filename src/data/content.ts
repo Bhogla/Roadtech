@@ -87,9 +87,9 @@ export const home = {
     title: 'Manufacturing Units',
     hint: '3 locations',
     locations: [
+      { city: 'Saharanpur', line: 'Uttar Pradesh · Primary plant & registered operations' },
       { city: 'Hyderabad', line: 'Telangana · Bitumen emulsions & modified bitumen' },
       { city: 'Mathura', line: 'Uttar Pradesh · Cold-mix & emulsion production' },
-      { city: 'Saharanpur', line: 'Uttar Pradesh · Primary plant & registered operations' },
     ],
   },
   stat: {
