@@ -23,7 +23,7 @@ export const contact = {
   workingDays: 'Monday to Saturday',
   plantAddress: '114, 114-B, Delhi Rd, Jandhera, Pahansu, Uttar Pradesh 247451',
   registeredAddress:
-    'Roadtech Asphalt Technologies Pvt Ltd\nTower T1, Unit No. A-907, NX-One,\nGreater Noida West, U.P. 201009',
+    'Tower T1, Unit No. A-907, NX-One,\nGreater Noida West, U.P. 201009',
   // Upcoming Noida branch — placeholder copy; replace with the real Noida address later.
   registeredAddressNoida:
     'Shop No. 3, 1st Floor, Sophia Market, Near Hindi Medium Sophia School, Saharanpur',
